@@ -5,6 +5,7 @@ const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/sections/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
@@ -22,7 +23,10 @@ const config: Config = {
         background: "#FFFFFF",
         foreground: "#202124",
         dark: "#202124",
-        light: "#FFFFFF",
+        light: {
+          DEFAULT: "#FFFFFF",
+          60: "#FFFFFF99", // 60% opacity - for inactive nav items
+        },
         accent: "#601FEB",
 
         // shadcn/ui colors

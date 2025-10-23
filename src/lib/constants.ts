@@ -1,7 +1,10 @@
 // Brand Colors
 export const COLORS = {
   primary: "#B6E802",
-  light: "#FFFFFF",
+  light: {
+    DEFAULT: "#FFFFFF",
+    60: "#FFFFFF99", // 60% opacity
+  },
   dark: "#202124",
   accent: "#601FEB",
 } as const;

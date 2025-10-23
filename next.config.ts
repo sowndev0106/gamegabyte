@@ -1,7 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // AWS Amplify hosting configuration
+  output: 'standalone',
+
+  // Image optimization for production
+  images: {
+    unoptimized: false,
+  },
 };
 
 export default nextConfig;
