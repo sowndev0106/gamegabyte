@@ -1,0 +1,225 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 9% 14%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 9% 14%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 9% 14%;
+    --primary: 72 91% 50%;
+    --primary-foreground: 220 9% 14%;
+    --secondary: 264 92% 53%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 220 9% 96%;
+    --muted-foreground: 220 9% 46%;
+    --accent: 264 92% 53%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 72 91% 50%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 220 9% 14%;
+    --foreground: 0 0% 100%;
+    --card: 220 9% 14%;
+    --card-foreground: 0 0% 100%;
+    --popover: 220 9% 14%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 72 91% 50%;
+    --primary-foreground: 220 9% 14%;
+    --secondary: 264 92% 53%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 220 9% 20%;
+    --muted-foreground: 220 9% 70%;
+    --accent: 264 92% 53%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 9% 20%;
+    --input: 220 9% 20%;
+    --ring: 72 91% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Custom Typography Classes */
+@layer components {
+  /* Hero Typography */
+  .text-hero {
+    @apply font-schibsted font-extrabold uppercase;
+    font-size: 80px;
+    line-height: 100%;
+    letter-spacing: -0.03em;
+  }
+
+  /* Headers Typography */
+  .text-h1 {
+    @apply font-schibsted font-bold capitalize;
+    font-size: 56px;
+    line-height: 100%;
+    letter-spacing: -0.06em;
+  }
+
+  .text-h2 {
+    @apply font-schibsted font-bold capitalize;
+    font-size: 48px;
+    line-height: 110%;
+    letter-spacing: -0.05em;
+  }
+
+  .text-h3 {
+    @apply font-schibsted font-bold capitalize;
+    font-size: 40px;
+    line-height: 115%;
+    letter-spacing: -0.04em;
+  }
+
+  .text-h4 {
+    @apply font-schibsted font-bold capitalize;
+    font-size: 32px;
+    line-height: 120%;
+    letter-spacing: -0.03em;
+  }
+
+  .text-h5 {
+    @apply font-schibsted font-bold capitalize;
+    font-size: 24px;
+    line-height: 125%;
+    letter-spacing: -0.02em;
+  }
+
+  /* Description Typography */
+  .text-description {
+    @apply font-schibsted font-normal;
+    font-size: 18px;
+    line-height: 135%;
+    letter-spacing: -0.02em;
+  }
+
+  /* Body Text */
+  .text-body {
+    @apply font-schibsted font-normal;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+  }
+
+  /* Small Text */
+  .text-small {
+    @apply font-schibsted font-normal;
+    font-size: 14px;
+    line-height: 140%;
+    letter-spacing: 0;
+  }
+
+  /* Centered variants */
+  .text-hero-center {
+    @apply text-hero text-center;
+  }
+
+  .text-h1-center {
+    @apply text-h1 text-center;
+  }
+
+  .text-h2-center {
+    @apply text-h2 text-center;
+  }
+
+  .text-h3-center {
+    @apply text-h3 text-center;
+  }
+
+  .text-h4-center {
+    @apply text-h4 text-center;
+  }
+
+  .text-h5-center {
+    @apply text-h5 text-center;
+  }
+
+  .text-description-center {
+    @apply text-description text-center;
+  }
+
+  /* Brand color combinations */
+  .bg-primary-gradient {
+    @apply bg-gradient-to-r from-primary to-accent;
+  }
+
+  .text-primary-gradient {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+
+  /* Button variants */
+  .btn-primary {
+    @apply bg-primary text-dark hover:bg-primary/90 transition-colors font-bold px-6 py-3 rounded-lg;
+  }
+
+  .btn-secondary {
+    @apply bg-accent text-light hover:bg-accent/90 transition-colors font-bold px-6 py-3 rounded-lg;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-dark transition-colors font-bold px-6 py-3 rounded-lg;
+  }
+}
+
+/* Responsive Typography */
+@layer utilities {
+  @media (max-width: 768px) {
+    .text-hero {
+      font-size: 48px;
+    }
+
+    .text-h1 {
+      font-size: 36px;
+    }
+
+    .text-h2 {
+      font-size: 32px;
+    }
+
+    .text-h3 {
+      font-size: 28px;
+    }
+
+    .text-h4 {
+      font-size: 24px;
+    }
+
+    .text-h5 {
+      font-size: 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .text-hero {
+      font-size: 36px;
+    }
+
+    .text-h1 {
+      font-size: 28px;
+    }
+
+    .text-h2 {
+      font-size: 24px;
+    }
+  }
+}
