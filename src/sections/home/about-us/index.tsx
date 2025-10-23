@@ -21,6 +21,8 @@ export function AboutUsSection({
   const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
+    const currentSection = sectionRef.current;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -34,13 +36,13 @@ export function AboutUsSection({
       }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    if (currentSection) {
+      observer.observe(currentSection);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (currentSection) {
+        observer.unobserve(currentSection);
       }
     };
   }, [isInView]);

@@ -8,7 +8,6 @@ interface Stat {
 }
 
 interface OurNumbersSectionProps {
-  title?: string;
   subtitle?: string;
   stats?: Stat[];
   backgroundImage?: string;
@@ -19,11 +18,10 @@ interface OurNumbersSectionProps {
  * Shows company statistics with background image
  */
 export function OurNumbersSection({
-  title = "We've Helped Hundreds Of Companies",
-  subtitle = "We're only just getting started on our journey",
+  subtitle = "We&apos;re only just getting started on our journey",
   stats = [
     { number: '723', label: 'Success Project' },
-    { number: '10', label: "Year's Experience" },
+    { number: '10', label: "Year&apos;s Experience" },
     { number: '500', label: 'Product Launched' },
     { number: '100', label: 'Startup Raised' },
   ],
@@ -50,7 +48,7 @@ export function OurNumbersSection({
         <div className="mb-2">
           <h2 className="font-schibsted font-bold text-[40px] md:text-[48px] lg:text-[56px] leading-[100%] tracking-[-0.06em] capitalize">
             <span className="inline-block text-primary  py-1 mb-1">
-              We've Helped Hundreds
+              We&apos;ve Helped Hundreds
             </span>
             <br />
             <span className="inline-block text-primary  py-1">
