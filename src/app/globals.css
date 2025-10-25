@@ -63,57 +63,246 @@
 @layer components {
   /* Content Container - Consistent alignment for all sections */
   .content-container {
-    @apply w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16;
-    max-width: 1920px; /* Increased from 1440px for less margin */
+    @apply px-4 w-full mx-auto sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20;
+    max-width: 1900px; /* Standard max-width */
+  }
+
+  @media (min-width: 2560px) {
+    .content-container {
+      max-width: 4000px; /* Larger max-width for 4K displays */
+    }
   }
 
   /* Content Container Full - Uses Tailwind's default container max-widths */
   .content-container-full {
-    @apply container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16;
+    @apply container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 3xl:px-24;
   }
 
-  /* Hero Typography */
-  .text-hero {
+  /* ===== RESPONSIVE TYPOGRAPHY SYSTEM ===== */
+  /* All text doubles in size on 4K displays (3xl breakpoint: 2560px+) */
+
+  /* Display Sizes - For hero sections and large headings */
+  .text-display-xl {
     @apply font-schibsted font-extrabold uppercase;
     font-size: 80px;
     line-height: 100%;
     letter-spacing: -0.03em;
   }
 
-  /* Headers Typography */
-  .text-h1 {
-    @apply font-schibsted font-bold capitalize;
+  @media (min-width: 2560px) {
+    .text-display-xl {
+      font-size: 160px !important; /* 80px * 2 */
+    }
+  }
+
+  .text-display-lg {
+    @apply font-schibsted font-bold;
+    font-size: 64px;
+    line-height: 100%;
+    letter-spacing: -0.03em;
+  }
+
+  @media (min-width: 2560px) {
+    .text-display-lg {
+      font-size: 128px !important; /* 64px * 2 */
+    }
+  }
+
+  /* Headings */
+  .text-heading-1 {
+    @apply font-schibsted font-bold;
     font-size: 56px;
     line-height: 100%;
     letter-spacing: -0.06em;
   }
 
-  .text-h2 {
-    @apply font-schibsted font-bold capitalize;
+  @media (min-width: 2560px) {
+    .text-heading-1 {
+      font-size: 112px !important; /* 56px * 2 */
+    }
+  }
+
+  .text-heading-2 {
+    @apply font-schibsted font-bold;
     font-size: 48px;
     line-height: 110%;
     letter-spacing: -0.05em;
   }
 
-  .text-h3 {
-    @apply font-schibsted font-bold capitalize;
+  @media (min-width: 2560px) {
+    .text-heading-2 {
+      font-size: 96px !important; /* 48px * 2 */
+    }
+  }
+
+  .text-heading-3 {
+    @apply font-schibsted font-bold;
     font-size: 40px;
     line-height: 115%;
     letter-spacing: -0.04em;
   }
 
-  .text-h4 {
-    @apply font-schibsted font-bold capitalize;
+  @media (min-width: 2560px) {
+    .text-heading-3 {
+      font-size: 80px !important; /* 40px * 2 */
+    }
+  }
+
+  .text-heading-4 {
+    @apply font-schibsted font-bold;
     font-size: 32px;
     line-height: 120%;
     letter-spacing: -0.03em;
   }
 
-  .text-h5 {
-    @apply font-schibsted font-bold capitalize;
+  @media (min-width: 2560px) {
+    .text-heading-4 {
+      font-size: 64px !important; /* 32px * 2 */
+    }
+  }
+
+  .text-heading-5 {
+    @apply font-schibsted font-bold;
     font-size: 24px;
     line-height: 125%;
     letter-spacing: -0.02em;
+  }
+
+  @media (min-width: 2560px) {
+    .text-heading-5 {
+      font-size: 48px !important; /* 24px * 2 */
+    }
+  }
+
+  .text-heading-6 {
+    @apply font-schibsted font-bold;
+    font-size: 20px;
+    line-height: 130%;
+    letter-spacing: -0.02em;
+  }
+
+  @media (min-width: 2560px) {
+    .text-heading-6 {
+      font-size: 40px !important; /* 20px * 2 */
+    }
+  }
+
+  /* Headings with Regular weight (for descriptions/paragraphs) */
+  .text-heading-1-regular {
+    @apply font-schibsted font-normal;
+    font-size: 56px;
+    line-height: 100%;
+    letter-spacing: -0.06em;
+  }
+
+  @media (min-width: 2560px) {
+    .text-heading-1-regular {
+      font-size: 112px !important; /* 56px * 2 */
+    }
+  }
+
+  .text-heading-2-regular {
+    @apply font-schibsted font-normal;
+    font-size: 48px;
+    line-height: 110%;
+    letter-spacing: -0.05em;
+  }
+
+  @media (min-width: 2560px) {
+    .text-heading-2-regular {
+      font-size: 96px !important; /* 48px * 2 */
+    }
+  }
+
+  .text-heading-3-regular {
+    @apply font-schibsted font-normal;
+    font-size: 40px;
+    line-height: 115%;
+    letter-spacing: -0.04em;
+  }
+
+  @media (min-width: 2560px) {
+    .text-heading-3-regular {
+      font-size: 80px !important; /* 40px * 2 */
+    }
+  }
+
+  /* Body Text */
+  .text-body-xl {
+    @apply font-schibsted font-normal;
+    font-size: 22px;
+    line-height: 140%;
+    letter-spacing: -0.02em;
+  }
+
+  @media (min-width: 2560px) {
+    .text-body-xl {
+      font-size: 44px !important; /* 22px * 2 */
+    }
+  }
+
+  .text-body-lg {
+    @apply font-schibsted font-normal;
+    font-size: 18px;
+    line-height: 135%;
+    letter-spacing: -0.02em;
+  }
+
+  @media (min-width: 2560px) {
+    .text-body-lg {
+      font-size: 36px !important; /* 18px * 2 */
+    }
+  }
+
+  .text-body-md {
+    @apply font-schibsted font-normal;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+  }
+
+  @media (min-width: 2560px) {
+    .text-body-md {
+      font-size: 32px !important; /* 16px * 2 */
+    }
+  }
+
+  .text-body-sm {
+    @apply font-schibsted font-normal;
+    font-size: 14px;
+    line-height: 140%;
+    letter-spacing: 0;
+  }
+
+  @media (min-width: 2560px) {
+    .text-body-sm {
+      font-size: 28px !important; /* 14px * 2 */
+    }
+  }
+
+  /* Legacy classes (deprecated - use text-heading-* instead) */
+  .text-hero {
+    @apply text-display-xl;
+  }
+
+  .text-h1 {
+    @apply text-heading-1 capitalize;
+  }
+
+  .text-h2 {
+    @apply text-heading-2 capitalize;
+  }
+
+  .text-h3 {
+    @apply text-heading-3 capitalize;
+  }
+
+  .text-h4 {
+    @apply text-heading-4 capitalize;
+  }
+
+  .text-h5 {
+    @apply text-heading-5 capitalize;
   }
 
   /* Description Typography */
@@ -130,6 +319,72 @@
     font-size: 16px;
     line-height: 150%;
     letter-spacing: -0.01em;
+  }
+
+  /* ===== SECTION HEIGHTS SYSTEM ===== */
+  /* Heights scale on 4K displays (3xl breakpoint: 2560px+) */
+
+  /* Small sections - Compact content */
+  .min-h-section-xs {
+    min-height: 400px;
+  }
+
+  @media (min-width: 2560px) {
+    .min-h-section-xs {
+      min-height: 600px !important; /* 400px * 1.5 */
+    }
+  }
+
+  .min-h-section-sm {
+    min-height: 500px;
+  }
+
+  @media (min-width: 2560px) {
+    .min-h-section-sm {
+      min-height: 800px !important; /* 500px * 1.6 */
+    }
+  }
+
+  /* Medium sections - Standard content */
+  .min-h-section-md {
+    min-height: 600px;
+  }
+
+  @media (min-width: 2560px) {
+    .min-h-section-md {
+      min-height: 1000px !important; /* 600px * 1.67 */
+    }
+  }
+
+  .min-h-section-lg {
+    min-height: 700px;
+  }
+
+  @media (min-width: 2560px) {
+    .min-h-section-lg {
+      min-height: 1200px !important; /* 700px * 1.71 */
+    }
+  }
+
+  /* Large sections - Hero/Showcase */
+  .min-h-section-xl {
+    min-height: 800px;
+  }
+
+  @media (min-width: 2560px) {
+    .min-h-section-xl {
+      min-height: 1400px !important; /* 800px * 1.75 */
+    }
+  }
+
+  .min-h-section-2xl {
+    min-height: 900px;
+  }
+
+  @media (min-width: 2560px) {
+    .min-h-section-2xl {
+      min-height: 1600px !important; /* 900px * 1.78 */
+    }
   }
 
   /* Small Text */
@@ -189,6 +444,130 @@
 
   .btn-outline {
     @apply border-2 border-primary text-primary hover:bg-primary hover:text-dark transition-colors font-bold px-6 py-3 rounded-lg;
+  }
+
+  /* Custom Cursor Styles - Clean Crosshair */
+  .cursor-scope {
+    position: fixed;
+    width: 32px;
+    height: 32px;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: transform 0.15s ease-out;
+    z-index: 9999;
+  }
+
+  /* Center dot ring */
+  .scope-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    border: 1.5px solid hsl(var(--primary));
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: border-color 0.15s ease;
+  }
+
+  /* Main outer circle */
+  .scope-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border: 2.5px solid hsl(var(--primary));
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: border-color 0.15s ease;
+  }
+
+  /* Crosshair lines */
+  .scope-line {
+    position: absolute;
+    transition: background 0.15s ease;
+  }
+
+  /* Vertical line - split into top and bottom */
+  .scope-line-v {
+    left: 50%;
+    width: 2.5px;
+    transform: translateX(-50%);
+    background: linear-gradient(
+      to bottom,
+      hsl(var(--primary)) 0%,
+      hsl(var(--primary)) 35%,
+      transparent 35%,
+      transparent 65%,
+      hsl(var(--primary)) 65%,
+      hsl(var(--primary)) 100%
+    );
+    top: -12.5%;
+    height: 125%;
+  }
+
+  /* Horizontal line - split into left and right */
+  .scope-line-h {
+    top: 50%;
+    height: 2.5px;
+    transform: translateY(-50%);
+    background: linear-gradient(
+      to right,
+      hsl(var(--primary)) 0%,
+      hsl(var(--primary)) 35%,
+      transparent 35%,
+      transparent 65%,
+      hsl(var(--primary)) 65%,
+      hsl(var(--primary)) 100%
+    );
+    left: -12.5%;
+    width: 125%;
+  }
+
+  /* Hover state */
+  .cursor-scope.pointer .scope-center {
+    border-color: #ffffff;
+  }
+
+  .cursor-scope.pointer .scope-circle {
+    border-color: #ffffff;
+  }
+
+  .cursor-scope.pointer .scope-line-v {
+    background: linear-gradient(
+      to bottom,
+      #ffffff 0%,
+      #ffffff 35%,
+      transparent 35%,
+      transparent 65%,
+      #ffffff 65%,
+      #ffffff 100%
+    );
+  }
+
+  .cursor-scope.pointer .scope-line-h {
+    background: linear-gradient(
+      to right,
+      #ffffff 0%,
+      #ffffff 35%,
+      transparent 35%,
+      transparent 65%,
+      #ffffff 65%,
+      #ffffff 100%
+    );
+  }
+
+  /* Click state */
+  .cursor-scope.clicking {
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+
+  /* Hide on touch devices */
+  @media (hover: none) and (pointer: coarse) {
+    .cursor-scope {
+      display: none;
+    }
   }
 }
 

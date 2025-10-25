@@ -65,7 +65,7 @@ export function OurServicesSection({
   backgroundImage = '/images/sections/our-services/bg-our-service.svg',
 }: OurServicesSectionProps) {
   return (
-    <section className="relative w-full bg-light py-20 md:py-32 overflow-hidden">
+    <section className="relative w-full bg-light section-padding overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 w-full h-full">
         <Image
@@ -79,17 +79,17 @@ export function OurServicesSection({
 
       <div className="content-container-full relative z-10">
         {/* Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="font-schibsted font-bold text-[40px] md:text-[56px] lg:text-[64px] leading-[100%] tracking-[-0.02em] text-dark mb-4 md:mb-6">
+        <div className="text-center mb-12 md:mb-16 3xl:mb-24">
+          <h2 className="text-display-lg text-dark mb-4 md:mb-6 3xl:mb-12">
             {title}
           </h2>
-          <p className="font-schibsted font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[140%] text-dark/70 max-w-[600px] mx-auto">
+          <p className="text-body-lg text-dark/70 max-w-[600px] 3xl:max-w-[1200px] mx-auto">
             {subtitle}
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 3xl:gap-12 mb-12 md:mb-16 3xl:mb-24">
           {services.map((service, index) => (
             <ServiceCard key={index} {...service} />
           ))}
@@ -143,26 +143,26 @@ function ServiceCard({ title, description, icon }: Service) {
 
       {/* Icon */}
       {icon && (
-        <div className="mb-6 relative z-10">
-          <div className="w-12 h-12  rounded-lg flex items-center justify-center">
+        <div className="mb-6 3xl:mb-8 relative z-10">
+          <div className="w-12 h-12 3xl:w-24 3xl:h-24 rounded-lg flex items-center justify-center">
             <Image
               src={icon}
               alt={`${title} icon`}
               width={24}
               height={24}
-              className="w-6 h-6"
+              className="w-6 h-6 3xl:w-12 3xl:h-12"
             />
           </div>
         </div>
       )}
 
       {/* Title */}
-      <h3 className="font-schibsted font-bold text-[20px] md:text-[24px] leading-[120%] tracking-[-0.02em] text-dark mb-3 relative z-10">
+      <h3 className="text-heading-5 text-dark mb-3 3xl:mb-6 relative z-10">
         {title}
       </h3>
 
       {/* Description */}
-      <p className="font-schibsted font-normal text-[14px] md:text-[16px] leading-[140%] text-dark/70 relative z-10">
+      <p className="text-body-md text-dark/70 relative z-10">
         {description}
       </p>
     </div>

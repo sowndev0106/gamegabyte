@@ -31,7 +31,7 @@ export function HeroSection({
   backgroundImage = "/images/sections/hero/bg_hero.mp4",
 }: HeroSectionProps) {
   return (
-    <section className="relative w-full overflow-hidden bg-dark h-[calc(100vh-70px)] max-h-[1080px]">
+    <section className="relative w-full overflow-hidden bg-dark h-[calc(100vh-70px)] max-h-[1080px] 2xl:max-h-[1440px] 3xl:max-h-none">
       {/* Background Video - Layer 1 (bottom) */}
       <div className="absolute inset-0 z-0">
         <video
@@ -59,28 +59,29 @@ export function HeroSection({
       {/* Content - Layer 3 (above overlay) */}
       <div className="relative z-10 flex h-full items-center">
         <div className="content-container py-12 sm:py-16 md:py-20">
-          <div className="max-w-[1200px]">
-            <h1 className="font-schibsted uppercase mb-4 sm:mb-6">
-              <span className="block text-light font-extrabold text-[32px] sm:text-[48px] md:text-[64px] lg:text-[80px] leading-[100%] tracking-[-0.03em] mb-0">
+          <div className="max-w-[1200px] 3xl:max-w-[2000px]">
+            <h1 className="mb-4 sm:mb-6 3xl:mb-12">
+              <span className="block text-light text-display-xl mb-0">
                 {title} <span className="text-primary">{titleHighlight}</span>
               </span>
-              <span className="block text-light font-extrabold text-[32px] sm:text-[48px] md:text-[64px] lg:text-[80px] leading-[100%] tracking-[-0.03em]">
+              <span className="block text-light text-display-xl">
                 MARKETING STUDIO
               </span>
             </h1>
 
-            {/* Subtitle - 32px, Medium (500), -5% letter spacing, 109% line height */}
-            <p className="font-schibsted text-light font-medium text-[18px] sm:text-[22px] md:text-[28px] lg:text-[32px] leading-[109%] tracking-[-0.05em] mb-6 sm:mb-8 md:mb-10 max-w-[900px]">
+            {/* Subtitle */}
+            <p className="text-light font-medium text-body-xl mb-6 sm:mb-8 md:mb-10 3xl:mb-16 max-w-[900px] 3xl:max-w-[1800px]">
               {subtitle}
             </p>
 
             {/* Buttons */}
-            <div className="flex flex-wrap gap-3 sm:gap-4 mb-12 sm:mb-16 sm:mt-16">
+            <div className="flex flex-wrap gap-3 sm:gap-4 3xl:gap-8 mb-12 sm:mb-16 sm:mt-16 3xl:mt-24 3xl:mb-24">
               <Link href={primaryButtonHref}>
                 <ActionButton
                   variant="white"
                   size="md"
                   arrowDirection="up-right"
+                  className="3xl:px-16 3xl:py-8 3xl:text-2xl 3xl:h-auto"
                 >
                   {primaryButtonText}
                 </ActionButton>
@@ -91,6 +92,7 @@ export function HeroSection({
                   variant="primary"
                   size="md"
                   arrowDirection="up-right"
+                  className="3xl:px-16 3xl:py-8 3xl:text-2xl 3xl:h-auto"
                 >
                   {secondaryButtonText}
                 </ActionButton>
@@ -101,7 +103,7 @@ export function HeroSection({
       </div>
 
       {/* Client Logos at Bottom - Layer 4 (top) */}
-      <div className="absolute bottom-5 left-0 right-0 z-20 py-6">
+      <div className="absolute bottom-5 left-0 right-0 z-20 py-6 3xl:bottom-10 3xl:py-12">
         <InfiniteScroll
           images={[
             '/images/logos/clients/logo-client-1.svg',
@@ -119,9 +121,10 @@ export function HeroSection({
           ]}
           direction="left"
           speed={60}
-          imageWidth={120}
+          imageWidth={150}
           imageHeight={60}
-          className="opacity-50"
+          gap={30}
+          className="opacity-50 3xl:[&_img]:!w-[240px] 3xl:[&_img]:!h-[120px]"
           imageClassName="brightness-200 grayscale"
         />
       </div>

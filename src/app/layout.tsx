@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Schibsted_Grotesk } from "next/font/google";
 import { Header } from "@/components/layout/header";
+import CustomCursor from "@/components/ui/custom-cursor";
 import "./globals.css";
 
 const schibstedGrotesk = Schibsted_Grotesk({
@@ -23,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${schibstedGrotesk.variable} font-sans antialiased`}>
+        <CustomCursor />
         <Header />
         <div className="pt-[70px]">{children}</div>
       </body>

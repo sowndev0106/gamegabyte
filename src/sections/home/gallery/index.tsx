@@ -37,7 +37,7 @@ export function GallerySection({
   ];
 
   return (
-    <section className="relative w-full overflow-hidden bg-dark py-16 md:py-24">
+    <section className="relative w-full overflow-hidden bg-dark section-padding">
       {/* Background SVG */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <Image
@@ -52,11 +52,11 @@ export function GallerySection({
       {/* Content */}
       <div className="relative z-10">
         {/* Title */}
-        <div className="content-container-full mb-12 md:mb-16">
-          <h2 className="font-schibsted font-bold text-light text-[40px] md:text-[56px] lg:text-[64px] leading-[100%] tracking-[-0.03em] capitalize">
+        <div className="content-container-full mb-12 md:mb-16 3xl:mb-24">
+          <h2 className="text-heading-1 text-light capitalize">
             {title}
           </h2>
-          <h2 className="font-schibsted font-bold text-light text-[40px] md:text-[56px] lg:text-[64px] leading-[100%] tracking-[-0.03em] capitalize">
+          <h2 className="text-heading-1 text-light capitalize">
             {subtitle}
           </h2>
         </div>
@@ -66,10 +66,14 @@ export function GallerySection({
           <InfiniteScroll
             images={firstRowImages}
             direction="right"
-            speed={60}
-            imageWidth={253}
-            imageHeight={200}
+            speed={100}
+            imageWidth={300}
+            imageHeight={250}
             gap={0}
+            responsive={{
+              xl: { width: 400, height: 333 },    // 1.33x for large screens (>= 1280px)
+              '3xl': { width: 600, height: 500 }, // 2x for 4K displays (>= 2560px)
+            }}
           />
         </div>
 
@@ -78,10 +82,14 @@ export function GallerySection({
           <InfiniteScroll
             images={secondRowImages}
             direction="left"
-            speed={60}
-            imageWidth={253}
-            imageHeight={200}
+            speed={100}
+            imageWidth={300}
+            imageHeight={250}
             gap={0}
+            responsive={{
+              xl: { width: 400, height: 333 },    // 1.33x for large screens (>= 1280px)
+              '3xl': { width: 600, height: 500 }, // 2x for 4K displays (>= 2560px)
+            }}
           />
         </div>
       </div>

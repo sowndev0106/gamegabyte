@@ -19,7 +19,7 @@ export function ShowreelSection({
   const videoRef = useRef<HTMLVideoElement>(null);
 
   return (
-    <section className="relative w-full bg-dark py-16 md:py-24 overflow-hidden">
+    <section className="relative w-full bg-dark section-padding-lg overflow-hidden">
       {/* Background SVG */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <Image
@@ -31,9 +31,9 @@ export function ShowreelSection({
       </div>
 
       {/* Title - Centered */}
-      <div className="relative z-10 text-center mb-12 md:mb-16">
+      <div className="relative z-10 text-center mb-12 md:mb-16 3xl:mb-24">
         <h2
-          className="font-schibsted font-bold text-[56px] capitalize leading-[100%] tracking-[-0.06em] bg-clip-text text-transparent"
+          className="text-heading-1 capitalize bg-clip-text text-transparent"
           style={{
             backgroundImage: 'linear-gradient(90deg, #FFFFFF 0%, #F4F4F4 27.2%, #7A7A7A 100%)',
           }}
@@ -44,7 +44,7 @@ export function ShowreelSection({
 
       {/* Video Container - Smaller Width */}
       <div className="relative z-10 content-container">
-        <div className="max-w-[1200px] mx-auto">
+        <div className="max-w-[1200px] 3xl:max-w-[2000px] mx-auto">
           <div className="relative w-full aspect-video overflow-hidden bg-dark-80">
             {/* Video */}
             <video

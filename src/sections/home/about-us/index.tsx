@@ -5,77 +5,85 @@ import { useEffect, useRef, useState } from 'react';
 interface AboutUsSectionProps {
   title?: string;
   description?: string;
-  animationDuration?: number; // in seconds
 }
 
 /**
  * About Us Section Component
- * Text fills from left to right automatically when in view
+ * Text fills from left to right based on scroll position
  */
 export function AboutUsSection({
   title = 'ABOUT US',
   description = 'To Help Game Studios Level Up Their Marketing With Innovative, Player-Focused Solutions, A Game Website That Connect Creativity With Measurable Success.',
-  animationDuration = 2.5,
 }: AboutUsSectionProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [isInView, setIsInView] = useState(false);
+  const [fillPercentage, setFillPercentage] = useState(0);
 
   useEffect(() => {
-    const currentSection = sectionRef.current;
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !isInView) {
-            setIsInView(true);
-          }
-        });
-      },
-      {
-        threshold: 0.2, // Trigger when 20% of section is visible
-      }
-    );
+      const section = sectionRef.current;
+      const rect = section.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
 
-    if (currentSection) {
-      observer.observe(currentSection);
-    }
+      // Calculate scroll progress through the section
+      const sectionTop = rect.top;
+      const sectionHeight = rect.height;
 
-    return () => {
-      if (currentSection) {
-        observer.unobserve(currentSection);
+      // Start filling when section enters viewport, complete when it exits
+      if (sectionTop < windowHeight && sectionTop + sectionHeight > 0) {
+        // Calculate percentage based on how far section has scrolled through viewport
+        const scrollProgress = (windowHeight - sectionTop) / (windowHeight + sectionHeight);
+        const percentage = Math.min(Math.max(scrollProgress * 100, 0), 100);
+        setFillPercentage(percentage);
       }
     };
-  }, [isInView]);
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial position
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Calculate revealed characters based on scroll
+  // Map 0-70% scroll progress to 0-100% text reveal
+  const adjustedPercentage = Math.min((fillPercentage / 70) * 100, 100);
+  const totalChars = description.length;
+  const revealedChars = Math.floor((adjustedPercentage / 100) * totalChars);
+
+  // Render text with character-by-character coloring
+  const renderText = () => {
+    return description.split('').map((char, index) => {
+      const isRevealed = index < revealedChars;
+      return (
+        <span
+          key={index}
+          style={{
+            color: isRevealed ? '#202124' : '#00000066',
+            transition: 'color 0.1s ease-out',
+          }}
+        >
+          {char}
+        </span>
+      );
+    });
+  };
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-light py-20 md:py-32">
+    <section ref={sectionRef} className="relative w-full bg-light section-padding">
       <div className="content-container-full">
         {/* Title */}
-        <div className="mb-8 md:mb-12">
-          <p className="font-schibsted text-dark text-[14px] md:text-[16px] uppercase tracking-wider">
+        <div className="mb-8 md:mb-12 3xl:mb-16">
+          <p className="text-dark text-body-sm uppercase tracking-wider">
             {title}
           </p>
         </div>
 
         {/* Description with Fill Effect */}
         <div className="relative">
-          {/* Gray Text (Background) */}
-          <p className="font-schibsted font-normal text-[32px] md:text-[48px] lg:text-[56px] leading-[100%] tracking-[-0.06em] capitalize" style={{ color: '#00000066' }}>
-            {description}
+          <p className="text-heading-1-regular capitalize">
+            {renderText()}
           </p>
-
-          {/* Black Text (Fills from left to right automatically) */}
-          <div
-            className="absolute top-0 left-0 overflow-hidden"
-            style={{
-              width: isInView ? '100%' : '0%',
-              transition: `width ${animationDuration}s ease-out`,
-            }}
-          >
-            <p className="font-schibsted font-normal text-[32px] md:text-[48px] lg:text-[56px] leading-[100%] tracking-[-0.06em] capitalize text-dark whitespace-nowrap">
-              {description}
-            </p>
-          </div>
         </div>
       </div>
     </section>
