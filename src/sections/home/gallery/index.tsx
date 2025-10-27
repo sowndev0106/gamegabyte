@@ -44,7 +44,7 @@ export function GallerySection({
           src="/images/sections/gallery/bg_gallery.svg"
           alt="Gallery background"
           fill
-          className="object-cover"
+          className="object-cover object-center"
           priority={false}
         />
       </div>

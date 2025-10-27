@@ -72,7 +72,7 @@ export function OurServicesSection({
           src={backgroundImage}
           alt="Background decoration"
           fill
-          className="object-cover opacity-30"
+          className="object-cover object-center"
           priority={false}
         />
       </div>
@@ -122,24 +122,40 @@ function ServiceCard({ title, description, icon }: Service) {
         background: 'linear-gradient(37.32deg, rgba(255, 255, 255, 0.4) 21.63%, rgba(215, 215, 215, 0.4) 96.43%)',
         backdropFilter: 'blur(50px)',
         borderRadius: '16px',
-        border: '1.5px solid transparent',
-        backgroundClip: 'padding-box',
-        clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%)',
+        clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 35px), calc(100% - 35px) 100%, 0 100%)',
       }}
     >
       {/* Border Gradient Overlay */}
       <div
         className="absolute inset-0 rounded-[16px] pointer-events-none"
         style={{
-          background: 'linear-gradient(44.66deg, rgba(255, 255, 255, 0) 24.85%, #FFFFFF 169.17%)',
+          background: 'linear-gradient(100deg, rgba(255, 255, 255, 0) 10.85%, #FFFFFF 169.17%)',
           mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
           maskComposite: 'exclude',
           WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
           WebkitMaskComposite: 'xor',
-          padding: '1.5px',
-          clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%)',
+          padding: '2px',
+          clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 35px), calc(100% - 35px) 100%, 0 100%)',
         }}
       />
+
+      {/* Border for clipped diagonal edge */}
+      <svg
+        className="absolute bottom-0 right-0 pointer-events-none"
+        style={{
+          width: '35px',
+          height: '35px',
+        }}
+      >
+        <line
+          x1="0"
+          y1="35"
+          x2="35"
+          y2="0"
+          stroke="#FFFFFF"
+          strokeWidth="2"
+        />
+      </svg>
 
       {/* Icon */}
       {icon && (

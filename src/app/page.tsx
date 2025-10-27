@@ -4,6 +4,7 @@ import { OurNumbersSection } from "@/sections/home/our-numbers";
 import { OurServicesSection } from "@/sections/home/our-services";
 import { GallerySection } from "@/sections/home/gallery";
 import { HeroSection } from "@/sections/home/hero";
+import { WhyChooseUsSection } from "@/sections/home/why-choose-us";
 
 export default function HomePage() {
   return (
@@ -14,6 +15,7 @@ export default function HomePage() {
       <OurNumbersSection />
       <GallerySection />
       <OurServicesSection />
+      <WhyChooseUsSection />
     </main>
   );
 }
